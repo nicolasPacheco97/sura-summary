@@ -1,0 +1,16 @@
+---
+import { type Users } from "../utils/Types"
+import Layout from '../layouts/Layout.astro';
+import UserCard from "../components/UserCard.astro";
+
+const users = await fetch('https://randomuser.me/api/?results=5&nat=mx')
+const { results: user_data } = await users.json() as Users
+---
+
+<Layout title="Lista de contacto">
+	<section class="mt-5">
+        {user_data.map( user => (
+            <UserCard {...user}/>
+        ))}
+    </section>
+</Layout>

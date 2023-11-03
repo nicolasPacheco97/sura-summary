@@ -1,0 +1,14 @@
+---
+import { type Result } from "../utils/Types";
+const { name, picture, cell } = Astro.props as Result
+
+const fullName = `${name.first} ${name.last}`
+---
+
+<section class="bg-black p-5 mb-2 rounded-lg flex hover:scale-105 transition cursor-pointer">
+   <img src={picture.medium} class="rounded-full"/>
+   <div class="ml-3 flex flex-col justify-center">
+        <h2 class="font-barlow font-bold text-lg">{fullName}</h2>
+        <span class="text-xs">{cell}</span>
+   </div>
+</section>
